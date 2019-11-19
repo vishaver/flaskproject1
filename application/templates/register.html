@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="" novalidate>
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-3">Register Here</legend>
+                <div class="form-group mx-sm-5">
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control form-control-lg",placeholder="") }}
+                    {% for error in form.email.errors %}
+                         <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-group mx-sm-5">
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-lg",placeholder="") }}
+                    {% for error in form.password.errors %}
+                         <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-group mx-sm-5">
+                    {{ form.password_confirm.label(class="form-control-label ") }}
+                    {{ form.password_confirm(class="form-control form-control-lg",placeholder="") }}
+                    {% for error in form.password_confirm.errors %}
+                         <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-group mx-sm-5">
+                    {{ form.first_name.label(class="form-control-label ") }}
+                    {{ form.first_name(class="form-control form-control-lg",placeholder="") }}
+                    {% for error in form.first_name.errors %}
+                         <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="form-group mx-sm-5">
+                    {{ form.last_name.label(class="form-control-label ") }}
+                    {{ form.last_name(class="form-control form-control-lg",placeholder="") }}
+                    {% for error in form.last_name.errors %}
+                         <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+

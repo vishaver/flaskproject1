@@ -1,0 +1,39 @@
+    {% extends "layout.html" %}
+
+    {% block content %}
+
+    <fieldset class="form-group">
+                <legend class="border-bottom mb-3">Your registered courses</legend>
+    <div>
+        {% if not classes %}
+           <p>No course found.</p>
+        {% else %}
+           <p>You are enrolled in below courses</p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Course ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Credits</th>
+                <th scope="col">Term</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for class in classes %}
+            <!-- Construct the rest of courses here -->
+            <tr>
+                <td scope='row'>{{ class.r2["courseID"] }}</td>
+                <td>{{ class.r2["title"] }}</td>
+                <td>{{ class.r2["description"] }}</td>
+                <td>{{ class.r2["credits"] }}</td>
+                <td>{{ class.r2["term"] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+    </fieldset>
+
+    {% endblock %}
